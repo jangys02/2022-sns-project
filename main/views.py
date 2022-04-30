@@ -7,3 +7,9 @@ def showmain(request):
 
 def show(request):
     return render(request, 'main/show.html')
+
+def showgang(request):
+    return render(request, 'main/Gangneung.html')
+
+def showin(request):
+    return render(request, 'main/Incheon.html')
