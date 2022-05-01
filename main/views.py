@@ -11,5 +11,3 @@ def show(request):
 def showgang(request):
     return render(request, 'main/Gangneung.html')
 
-def showin(request):
-    return render(request, 'main/Incheon.html')

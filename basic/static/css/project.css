@@ -1,15 +1,17 @@
-a{
-    color :blueviolet;
-    font-weight: bold;
-    text-align: center;
-}
 .trip_box{
     border: 2px solid blue;
     margin: 10px;
-
+   
 }
 
 h1{
     color :blueviolet;
     
+}
+
+p{
+    color :rgb(43, 226, 86);
+    font-weight: bold;
+    text-align: center;
+
 }
