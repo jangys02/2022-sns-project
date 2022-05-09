@@ -5,19 +5,34 @@
 {% block content %}
     <h1>01__goddess</h1> 
     <div class="trip_box">
-        <p>부산여행</p>
-        <p>속초여행</p>
+        <p>부산여행🚅</p>
+        <p>속초여행🚌</p>
         <div class="atag">
-            <a href="{% url 'showgang' %}">강릉여행</a>
+            <a href="{% url 'showgang' %}">강릉여행🏖</a>
         </div>
-        <p>포항여행</p>
-        <p>인천여행</p>
+        <p>포항여행🌺</p>
+        <p>인천여행😊</p>
     </div>
 
 <div class="atag">
     <a href="{% url 'introduce' %}">자기소개페이지</a>
 </div>
 
+<h3><a href="{%url 'new'%}">글쓰기</a></h3>
+<h1>글목록</h1>
+
+<div>
+    {% for post in posts %}
+    <div>
+        <h3>{{post.title}}</h3>
+        {{post.writer}}<br>
+        {{post.summary}}
+        <a href="{%url 'detail' post.id %}">...자세히</a>
+        <br>
+    </div>
+    {%endfor%}
+</div>
+
 {% endblock %}
-</body>
-</html>
+
+
