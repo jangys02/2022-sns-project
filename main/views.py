@@ -20,6 +20,15 @@ def detail(request,id):
 def new(request):
     return render(request, 'main/new.html')
 
+def update(request):
+    update_post = Post.objects.get(id=id)
+    update_post.title = request.POST['title']
+    update_post.writer = request.POST['writer']
+    update_post.pub_date = timezone.now()
+    update_post.body = request.POST['body']
+    update_post.save()
+    return redirect('main:detail',update_post.id)
+
 def create(request):
     new_post = Post()
     new_post.title = request.POST['title']
@@ -28,3 +37,7 @@ def create(request):
     new_post.body = request.POST['body']
     new_post.save()
     return redirect('detail',new_post.id)
+
+def edit(request, id):
+    edit_post = Post.objects.get(id = id)
+    return render(request, 'main/edit.html', {'post' : edit_post})
