@@ -8,9 +8,15 @@
         {%csrf_token%}
         <p>제목: <input type="text" name="title" value ="{{post.title}}"></p>
         <p>작성자: <input type="text" name="writer" value="{{post.writer}}"></p>
+        <p>사진: <input type="file" name="image"></p>
+        {%if post.image %}
+            <p><img src ="{{post.image.url}}" alt="사진"></p>
+        {% endif %}
         <p>내용: <textarea type="text" name="body" id="" cols="30" rows="10">{{post.body}}</textarea></p>
         <button type="submit">제출</button>
     </form>
 </div>
 
 {% endblock %}
+
+
