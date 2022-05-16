@@ -20,8 +20,8 @@ def detail(request,id):
 def new(request):
     return render(request, 'main/new.html')
 
-def update(request):
-    update_post = Post.objects.get(id=id)
+def update(request, id):
+    update_post = Post.objects.get(id = id)
     update_post.title = request.POST['title']
     update_post.writer = request.POST['writer']
     update_post.pub_date = timezone.now()
@@ -35,9 +35,17 @@ def create(request):
     new_post.writer = request.POST['writer']
     new_post.pub_date = timezone.now()
     new_post.body = request.POST['body']
+    new_post.image = request.FILES.get('image')
     new_post.save()
     return redirect('detail',new_post.id)
 
 def edit(request, id):
     edit_post = Post.objects.get(id = id)
     return render(request, 'main/edit.html', {'post' : edit_post})
+
+def delete(request, id):
+    delete_post = Post.objects.get(id = id)
+    delete_post.delete()
+    return redirect('main:showmain')
+
+
